@@ -1,0 +1,52 @@
+# Build trees
+build/
+build-*/
+cmake-build
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile.cmake
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+install_manifest.txt
+
+# Coverage / profiling
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+default.profraw
+coverage/
+coverage.info
+coverage.txt
+
+# libFuzzer artifacts
+crash-*
+leak-*
+oom-*
+timeout-*
+slow-unit-*
+fuzz-out/
+fuzz-work/
+corpus/*.orig
+artifacts/
+*.gcov
+
+# Objects and binaries
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+.cache/
+
+# Editor / OS
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/
