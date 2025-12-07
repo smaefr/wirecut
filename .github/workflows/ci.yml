@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  asan-ubsan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install clang and cmake
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake ninja-build
+      - name: Unit tests with ASan/UBSan
+        run: |
+          export CC=clang CXX=clang++
+          make test
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install clang, cmake, llvm
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake llvm
+      - name: parser.cpp line coverage (>= 80%)
+        run: |
+          export CC=clang CXX=clang++
+          make coverage
